@@ -13,6 +13,8 @@ The goal of the game is to pass the 5 levels while collecting gelados (translati
 
 It features a level editor, checkpoints, collectables, flags, solid blocks, fake blocks, spikes, unvisible skipes and more!
 
-More importantly it features a mushroom, that literally does nothing but walk to left and right and despawn when out of view!!!
+Checkpoints only work if you get ALL the gelados !!!
+
+More importantly it features a mushroom, that literally does nothing but walk to left and right and despawn when out of view or get smashed by the player!!!
 
 It is a planned future feature to show the time taken to beat the game in the "YOU WIN" screen.
