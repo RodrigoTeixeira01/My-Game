@@ -82,7 +82,7 @@ public class Mushroom extends Entity {
 
 	@Override
 	protected void touchedByPlayer() {
-		Main.die();
+		//Main.die();
 	}
 
 }
