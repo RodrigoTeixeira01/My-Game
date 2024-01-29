@@ -24,7 +24,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 /**
- * @version 1.15
+ * @version 1.15.1
  * @author RODRIGO TEIXEIRA
  *
  */
@@ -119,6 +119,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 	public static Dimension[] guiSizes; // GUI sizes
 	public int currentGui = -1;
 	private static int[] nextGui = { -1, 1, 2, 3, 4 };
+	private static boolean[] isWinScreen = {false, true, true, true, true};
 
 	public static final char[] fontChars = "0123456789-".toCharArray();
 	public static Image[] fontImages;
@@ -482,6 +483,9 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		if (currentGui >= 0) {
 			buffer.drawImage(guis[currentGui], guiPoses[currentGui].x, guiPoses[currentGui].y,
 					guiSizes[currentGui].width, guiSizes[currentGui].height, null);
+			if(isWinScreen[currentGui]) {
+				writeNumber(buffer, (int) ((double)tick/60.0d), CELL_SIZE*String.valueOf((int) ((double)tick/60.0d)).length(), 0, CELL_SIZE, CELL_SIZE);
+			}
 		}
 		if (ANCHOR_X > Integer.MIN_VALUE) {
 			final int spacement = 5;
@@ -492,7 +496,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		}
 
 		writeNumber(buffer, collectedGelados, WINDOW_SIZE, 0, CELL_SIZE, CELL_SIZE);
-
+		
 		g.drawImage(bufferImage, OFFSET_X, OFFSET_Y, null);
 	}
 
