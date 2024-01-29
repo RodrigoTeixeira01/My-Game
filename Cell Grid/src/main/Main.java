@@ -36,8 +36,8 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 	public static final int CELL_SIZE = 50;
 	public static final int CELL_COUNT = WINDOW_SIZE / CELL_SIZE + 1;
 	public static int MAP_SIZE = 100;
-	@SuppressWarnings("unused")
 	private static int tick = 0;
+	private static boolean timerRunning = true;
 	/**
 	 * Changes the FPS and TPS of the game.<br>
 	 * <br>
@@ -119,7 +119,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 	public static Dimension[] guiSizes; // GUI sizes
 	public int currentGui = -1;
 	private static int[] nextGui = { -1, 1, 2, 3, 4 };
-	private static boolean[] isWinScreen = {false, true, true, true, true};
+	private static boolean[] isWinScreen = { false, true, true, true, true };
 
 	public static final char[] fontChars = "0123456789-".toCharArray();
 	public static Image[] fontImages;
@@ -141,7 +141,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 
 	private int collectedGelados = 0;
 	private boolean enteredCreative = false;
-	
+
 	private static double dy = 0;
 
 	private static final int DEFAULT_HP = 5;
@@ -189,7 +189,8 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 				e.printStackTrace();
 				System.exit(1);
 			}
-			tick++;
+			if (timerRunning)
+				tick++;
 		}
 	}
 
@@ -483,8 +484,9 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		if (currentGui >= 0) {
 			buffer.drawImage(guis[currentGui], guiPoses[currentGui].x, guiPoses[currentGui].y,
 					guiSizes[currentGui].width, guiSizes[currentGui].height, null);
-			if(isWinScreen[currentGui]) {
-				writeNumber(buffer, (int) ((double)tick/60.0d), CELL_SIZE*String.valueOf((int) ((double)tick/60.0d)).length(), 0, CELL_SIZE, CELL_SIZE);
+			if (isWinScreen[currentGui]) {
+				writeNumber(buffer, (int) ((double) tick / 60.0d),
+						CELL_SIZE * String.valueOf((int) ((double) tick / 60.0d)).length(), 0, CELL_SIZE, CELL_SIZE);
 			}
 		}
 		if (ANCHOR_X > Integer.MIN_VALUE) {
@@ -496,7 +498,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		}
 
 		writeNumber(buffer, collectedGelados, WINDOW_SIZE, 0, CELL_SIZE, CELL_SIZE);
-		
+
 		g.drawImage(bufferImage, OFFSET_X, OFFSET_Y, null);
 	}
 
@@ -507,6 +509,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		timerRunning = true;
 		switch (e.getKeyCode()) {
 		case 37:
 			leftPressed = 1;
@@ -597,8 +600,9 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		} catch (FileNotFoundException fnfe) {
 			System.err.print("failed");
 			System.out.println(" to open file \"" + fileName + "\"\nso YOU WIN GUI will be openned.");
-			currentGui = enteredCreative? 4: collectedGelados <= LOW_PERCENT_MAX_AMOUNT ? 2
-					: collectedGelados >= ONE_HUNDRED_PERCENT_MIN_AMOUNT ? 3 : 1;
+			currentGui = enteredCreative ? 4
+					: collectedGelados <= LOW_PERCENT_MAX_AMOUNT ? 2
+							: collectedGelados >= ONE_HUNDRED_PERCENT_MIN_AMOUNT ? 3 : 1;
 		} catch (IOException | ClassNotFoundException | ClassCastException ioe) {
 			System.out.println("ERROR LOADING LEVEL");
 			ioe.printStackTrace();
