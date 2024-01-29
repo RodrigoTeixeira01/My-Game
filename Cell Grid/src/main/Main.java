@@ -37,7 +37,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 	public static final int CELL_COUNT = WINDOW_SIZE / CELL_SIZE + 1;
 	public static int MAP_SIZE = 100;
 	private static int tick = 0;
-	private static boolean timerRunning = true;
+	private static boolean timerRunning = false;
 	/**
 	 * Changes the FPS and TPS of the game.<br>
 	 * <br>
@@ -486,8 +486,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 					guiSizes[currentGui].width, guiSizes[currentGui].height, null);
 			if (isWinScreen[currentGui]) {
 				int timeValue = (int) ((double) tick * 100.0d / FPS);
-				writeNumber(buffer, timeValue,
-						CELL_SIZE * String.valueOf(timeValue).length(), 0, CELL_SIZE, CELL_SIZE);
+				writeNumber(buffer, timeValue, CELL_SIZE * String.valueOf(timeValue).length(), 0, CELL_SIZE, CELL_SIZE);
 				timerRunning = false;
 			}
 		}
@@ -511,7 +510,13 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		timerRunning = true;
+		if (e.getKeyCode() == 27) // ESC
+			System.exit(0);
+		if (currentGui < 0 || !isWinScreen[currentGui])
+			timerRunning = true;
+		else
+			return;
+
 		switch (e.getKeyCode()) {
 		case 37:
 			leftPressed = 1;
@@ -582,8 +587,6 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 				str += ".save";
 			load(str);
 			break;
-		case 27: // ESC
-			System.exit(0);
 		case 32: // Space
 			currentGui = currentGui == -1 ? -1 : nextGui[currentGui];
 			break;
