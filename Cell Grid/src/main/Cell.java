@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class Cell {
 
-	private static final boolean SHOW_HITBOXES = true;
+	public static boolean SHOW_HITBOXES = false;
 	public static int BLACK = 0;
 	public static int WHITE = 1;
 	public static int FAKE = 2;

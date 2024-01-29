@@ -195,9 +195,12 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 	}
 
 	private void tickEntities() {
-		for (Object entity : entities) {
-			((Entity) entity).tick();
+		for (int i = 0; i < entities.size(); i++) {
+			entities.get(i).tick();
 		}
+//		for (Entity entity : entities) {
+//			entity.tick();
+//		}
 	}
 
 	private void checkColectables() {
@@ -478,7 +481,7 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		for (Entity entity : entities) {
 			entity.show(buffer);
 		}
-		if (invulnerable % 10 < 5)
+		if (invulnerable % 10 < 5 || CREATIVE_MODE)
 			buffer.drawImage(playerSprite, PLAYER_POS + PLAYER_X - CAMERA_X, PLAYER_POS, CELL_SIZE, CELL_SIZE, null);
 
 		if (currentGui >= 0) {
@@ -486,7 +489,12 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 					guiSizes[currentGui].width, guiSizes[currentGui].height, null);
 			if (isWinScreen[currentGui]) {
 				int timeValue = (int) ((double) tick * 100.0d / FPS);
-				writeNumber(buffer, timeValue, CELL_SIZE * String.valueOf(timeValue).length(), 0, CELL_SIZE, CELL_SIZE);
+				if (ANCHOR_X > Integer.MIN_VALUE)
+					writeNumber(buffer, timeValue, (WINDOW_SIZE + CELL_SIZE * String.valueOf(timeValue).length()) >>> 1,
+							guiPoses[currentGui].y - CELL_SIZE, CELL_SIZE, CELL_SIZE);
+				else 
+					writeNumber(buffer, timeValue, CELL_SIZE * String.valueOf(timeValue).length(), 0, CELL_SIZE,
+							CELL_SIZE);
 				timerRunning = false;
 			}
 		}
