@@ -17,7 +17,7 @@ Checkpoints only work if you get ALL the gelados !!!
 
 More importantly it features a mushroom, that literally does nothing but walk to left and right and despawn when out of view or get smashed by the player!!!
 
-It is a planned future feature to show the time taken to beat the game in the "YOU WIN" screen.
+It also features a timer that counts how many SECOUNDS passed since the first input, that is showed in the "YOU WIN" / "CHEATER" screen
 
 ---WARNING---
 Requires Java Runtime Edition OR Java Development Kit to work.
