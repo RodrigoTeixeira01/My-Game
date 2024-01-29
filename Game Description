@@ -7,7 +7,7 @@ Except for the player sprite who was made by my brother https://www.youtube.com/
 
 It is currently under development.
 
-It is a plataformer-like game with 5 levels and 4 endings, beeing them any%, low%, 100% and cheat%.
+It is a plataformer-like game with 5 levels and 4 endings, beeing them any%, low%, 100% and creative%.
 
 The goal of the game is to pass the 5 levels while collecting gelados (translation for ice cream in portuguese).
 
@@ -18,3 +18,6 @@ Checkpoints only work if you get ALL the gelados !!!
 More importantly it features a mushroom, that literally does nothing but walk to left and right and despawn when out of view or get smashed by the player!!!
 
 It is a planned future feature to show the time taken to beat the game in the "YOU WIN" screen.
+
+---WARNING---
+Requires Java Runtime Edition OR Java Development Kit to work.
