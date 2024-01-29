@@ -485,8 +485,10 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 			buffer.drawImage(guis[currentGui], guiPoses[currentGui].x, guiPoses[currentGui].y,
 					guiSizes[currentGui].width, guiSizes[currentGui].height, null);
 			if (isWinScreen[currentGui]) {
-				writeNumber(buffer, (int) ((double) tick / 60.0d),
-						CELL_SIZE * String.valueOf((int) ((double) tick / 60.0d)).length(), 0, CELL_SIZE, CELL_SIZE);
+				int timeValue = (int) ((double) tick * 100.0d / FPS);
+				writeNumber(buffer, timeValue,
+						CELL_SIZE * String.valueOf(timeValue).length(), 0, CELL_SIZE, CELL_SIZE);
+				timerRunning = false;
 			}
 		}
 		if (ANCHOR_X > Integer.MIN_VALUE) {
@@ -585,6 +587,8 @@ public class Main extends JFrame implements KeyListener, MouseListener {
 		case 32: // Space
 			currentGui = currentGui == -1 ? -1 : nextGui[currentGui];
 			break;
+		case 72: // DEBUG h
+			Cell.SHOW_HITBOXES = !Cell.SHOW_HITBOXES;
 		}
 
 	}
