@@ -1,0 +1,24 @@
+Game description
+
+This a level that I made line-by-line in the java programming language.
+
+All sprites were made manually by me somehow in scratch https://scratch.mit.edu/projects/874853342/editor.
+Except for the player sprite who was made by my brother https://www.youtube.com/@daniroyalgamer8150.
+
+It is currently under development.
+
+It is a plataformer-like game with 5 levels and 4 endings, beeing them any%, low%, 100% and creative%.
+
+The goal of the game is to pass the 5 levels while collecting gelados (translation for ice cream in portuguese).
+
+It features a level editor, checkpoints, collectables, flags, solid blocks, fake blocks, spikes, unvisible skipes and more!
+
+Checkpoints only work if you get ALL the gelados !!!
+
+More importantly it features a mushroom, that literally does nothing but walk to left and right and despawn when out of view or get smashed by the player!!!
+
+It also features a timer that counts how many hundreds of a secound passed since the first input, that is showed in the "YOU WIN" / "CHEATER" screen
+
+---WARNING---
+Requires Java Runtime Edition OR Java Development Kit to work.
+But because I'm very nice I'm including the java installer in the game files since 1.16.1
