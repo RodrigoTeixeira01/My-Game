@@ -10,7 +10,7 @@ You are able to distribute this game, but ALLWAYS giving credits to the original
 Modding is allowed, but is has to be clear that it is a mod, it must give credits to the original repository and should be free.
 Including any kind of computer virus in mods AND/OR in mod download pages is COMPLETELY FORBIDDEN (and probabilly illigal)
 
-Only me, as the creator of the game, have the right to sell the game.
+Only me, Rodrigo Teixeira, as the creator of the game, have the right to sell the game.
 
 Mods must include the original readme.md file from the earliest version of the game, but may include a secound readme file with other information. The original readme has priority over the mod one.
 
