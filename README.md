@@ -4,6 +4,8 @@ If you want to use this program, part of the code or any of the sprites you have
 or to the itch.io page:
 https://rosdrisgo.itch.io/genericgame
 
+If you enjoy the game please donate me thru the itch.io page of the game.
+
 The game is completely free to use play and mod.
 You are able to distribute this game, but ALLWAYS giving credits to the original github repository and creator.
 
